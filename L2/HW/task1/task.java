@@ -13,6 +13,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class task {
+    /**
+     * @param args
+     * @throws FileNotFoundException
+     */
     public static void main(String[] args) throws FileNotFoundException {
         StringBuilder builder = new StringBuilder();
         String separator = File.separator;
@@ -21,45 +25,29 @@ public class task {
         File file = new File(path);
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
-                // System.out.println(scanner.nextLine());
-                String line = scanner.nextLine();
+                String line = scanner.nextLine(); // "name":"Ivanov", "country":"Russia", "city":"Moscow", "age":"null"
                 String[] data = line.split(", "); // data = ["name":"Ivanov", "country":"Russia", "city":"Moscow",
                                                   // "age":"null"]
-
-                // String[] data2 = new String[data.length - 1];
-                // // String exclude = "'null'";
-                // for (String item : data) {
-                // for (int i = 0; i < data2.length; i++) {
-                // // if (item.equals(exclude)) {
-                // // continue;
-                // // }
-                // data2[i] = item;
-                // }
-                // // data2.push(item);
-                // }
                 for (String part : data) {
-                    // String str = part.join(line, part);
-                    // if (scanner.nextLine("null"))
-                    // ;
-                    String[] keyValue = part.split(":"); // ["name", "Ivanov", "age", "null"]
+                    String[] keyValue = part.split(":"); // ["name", "Ivanov"] ["age", "null"]
                     String[] keyLong = keyValue[0].split(""); // [", n, a, m, e, "]
                     String key = "";
                     for (int i = 1; i < keyLong.length - 1; i++) {
-                        key = key + keyLong[i];
+                        key = key + keyLong[i]; // name
                     }
-                    String value = keyValue[1];
-                    builder.append(" AND " + key + "=" + value);
+                    String[] valueLong = keyValue[1].split(""); // [", n, u, l, l, "]
+                    String value = "";
+                    for (int j = 1; j < valueLong.length - 1; j++) {
+                        value = value + valueLong[j]; // null
+                    }
+                    if (value != "null") {
+                        builder.append(" AND " + key + "=" + '"' + value + '"');
+                    }
                 }
                 String request = builder.toString();
                 request = request.substring(5);
                 System.out.println("SELECT * FROM students WHERE " + request);
             }
         }
-
     }
-
-    private static boolean indexOf(String exclude) {
-        return false;
-    }
-
 }
