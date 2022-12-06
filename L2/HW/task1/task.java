@@ -40,7 +40,7 @@ public class task {
                     for (int j = 1; j < valueLong.length - 1; j++) {
                         value = value + valueLong[j]; // null
                     }
-                    if (value != "null") {
+                    if (!value.equals("null")) {
                         builder.append(" AND " + key + "=" + '"' + value + '"');
                     }
                 }
