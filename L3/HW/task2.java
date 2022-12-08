@@ -17,14 +17,10 @@ public class task2 {
         list.add(9);
         list.add(10);
         for (int i = 0; i < list.size(); i++) {
-            if (list(i) % 2 == 0) {
-                list.remove(i + 1);
+            if (list.get(i) % 2 == 0) {
+                list.remove(list.get(i));
             }
         }
         System.out.println(list);
-    }
-
-    private static int list(int i) {
-        return 0;
     }
 }
