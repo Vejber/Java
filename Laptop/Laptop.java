@@ -1,5 +1,7 @@
 package Laptop;
 
+import java.util.jar.Attributes.Name;
+
 public class Laptop {
     int ram;
     int hdVolume;
@@ -8,6 +10,7 @@ public class Laptop {
 
     @Override
     public String toString() {
-        return String.format("RAM: %d HDVolume: %d OS: %s Colour: %s", ram, hdVolume, os, color);
+        return String.format("RAM: %d; HDVolume: %d; OS: %s; Colour: %s;", ram, hdVolume, os,
+                color);
     }
 }

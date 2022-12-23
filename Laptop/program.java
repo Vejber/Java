@@ -50,10 +50,11 @@ public class program {
         hp.hdVolume = 550;
         hp.os = "linux";
         hp.color = "white";
-
+        // var laptops = new HashSet<String,Arrays.asList(lenovo, acer, macbook, hp)>;
         var laptops = new HashSet<Laptop>(Arrays.asList(lenovo, acer, macbook, hp));
+        System.out.println(laptops);
 
-        // System.out.println(l1.toString());
+        System.out.println(lenovo.toString());
         String[] userCriteria = request().split(""); // make array ["1", ",", "3"]
         LinkedList<String> sysCriteria = new LinkedList<>();
 
@@ -64,8 +65,8 @@ public class program {
         }
 
         System.out.println(sysCriteria); // ["1","3"]
-
-        HashMap<String, String> needs = new HashMap<>();
+        // Set<String> needs = new HashSet<>()
+        HashMap<String, Object> needs = new HashMap<>();
         for (String item : sysCriteria) {
             // Scanner iScanner = new Scanner(System.in);
             switch (item) {
@@ -74,22 +75,25 @@ public class program {
 
                     System.out.printf("Введите минимальную необходимую величину для ОЗУ: ");
                     String property = iScanner.nextLine();
+                    int propertyInt = Integer.parseInt(property);
                     // iScanner.close();
-                    needs.put("ram", property);
+                    needs.put("ram", propertyInt);
                     break;
                 }
                 case ("2"): {
                     // Scanner iScanner = new Scanner(System.in);
                     System.out.printf("Введите минимальную необходимую величину для объема ЖД: ");
                     String property = iScanner.nextLine();
+                    int propertyInt = Integer.parseInt(property);
                     // iScanner.close();
-                    needs.put("hdVolume", property);
+                    needs.put("hdVolume", propertyInt);
                     break;
                 }
                 case ("3"): {
                     // Scanner iScanner = new Scanner(System.in);
                     System.out.printf("Введите ОС: ");
                     String property = iScanner.nextLine();
+                    property = property.toLowerCase();
                     // iScanner.close();
                     needs.put("os", property);
                     break;
@@ -98,6 +102,7 @@ public class program {
                     // Scanner iScanner = new Scanner(System.in);
                     System.out.printf("Введите цвет: ");
                     String property = iScanner.nextLine();
+                    property = property.toLowerCase();
                     // iScanner.close();
                     needs.put("color", property);
                     break;
@@ -111,6 +116,23 @@ public class program {
             System.out.println(needs);
 
         }
+        // HashMap<String, Object> needs = new HashMap<>();
+        LinkedList<String> result = new LinkedList<>();
+        // for (Map.Entry<String, String> pair : needs.entrySet()) {
+
+        // }
+        for (String key : needs.keySet()) {
+            switch (key) {
+                case ("ram"): {
+                    Object val = needs.get(key); // {ram = val} to get value
+                    // System.out.println(val);
+                    Integer valInt = (int) val;
+                    // System.out.println(valInt);
+
+                    break;
+                }
+            }
+        }
         iScanner.close();
     }
 
@@ -119,7 +141,7 @@ public class program {
         System.out.printf(
                 "Введите цифру(цифры), соответствующую(ие) необходимому критерию: 1 - ОЗУ, 2 - Объем ЖД, 3 - Операционная система, 4 - Цвет"); // 1,3
         String criteria = iScanner.nextLine(); // "1,3"
-        iScanner.close();
+        // iScanner.close();
         return criteria;
     }
 
