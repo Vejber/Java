@@ -167,8 +167,7 @@ public class program {
         Scanner iScanner = new Scanner(System.in);
         System.out.printf(
                 "Введите цифру(цифры), соответствующую(ие) необходимому критерию: 1 - ОЗУ, 2 - Объем ЖД, 3 - Операционная система, 4 - Цвет"); // 1,3
-        String criteria = iScanner.nextLine(); // "1,3"
-        // iScanner.close();
+        String criteria = iScanner.nextLine();
         return criteria;
     }
 
