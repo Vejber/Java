@@ -137,7 +137,7 @@ public class program {
                 case ("os"): {
                     Object val = needs.get(key);
                     for (Laptop stock : laptops) {
-                        if (stock.os == val) {
+                        if (stock.os.equals(val)) {
                             if (!result.contains(stock.name)) {
                                 result.add(stock.name);
                             }
@@ -148,7 +148,7 @@ public class program {
                 case ("color"): {
                     Object val = needs.get(key);
                     for (Laptop stock : laptops) {
-                        if (stock.color == val) {
+                        if (stock.color.equals(val)) {
                             if (!result.contains(stock.name)) {
                                 result.add(stock.name);
                             }
