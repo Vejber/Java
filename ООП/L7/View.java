@@ -15,10 +15,10 @@ public class View {
         System.out.printf(
                 "Выберите действие: 1 - Посмотреть список контрагентов; 2 - Найти контрагента по названию. Посмотреть подробную информацию о нём; 3 - Добавить контрагента; 4 - Удалить контрагента; 5 - Добавить новый способ связаться с контрагентом; 6 - Удалить способ связаться с контрагентом  > ");
         String command = iScanner.nextLine();
-        iScanner.close();
+        // iScanner.close();
         if (command.equals("1") || command.equals("2") || command.equals("3") || command.equals("4")
                 || command.equals("5") || command.equals("6")) {
-            Presenter button = new Presenter();
+            Presenter button = new Presenter(command, null);
             String result = button.action(command);
             System.out.println(result);
         } else {

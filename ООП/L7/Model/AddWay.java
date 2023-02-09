@@ -25,12 +25,12 @@ public class AddWay extends FindContact {
                     Scanner iScanner = new Scanner(System.in);
                     System.out.printf("Введите название нового способа связи. ");
                     String newWay = iScanner.nextLine();
-                    while (iScanner.hasNext()) {
+                    while (iScanner.hasNextLine()) {
                         System.out.printf("Введите значение нового способа свзязи. ");
                         String newNumbers = iScanner.nextLine();
                         newNumbersWay.add(newNumbers);
                     }
-                    iScanner.close();
+                    // iScanner.close();
                     reach.put(newWay, newNumbersWay);
                 }
             }

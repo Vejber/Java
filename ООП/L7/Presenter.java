@@ -16,7 +16,7 @@ public class Presenter extends ContactBook {
         // TODO Auto-generated constructor stub
     }
 
-    public static String action(String result) {
+    public String action(String result) {
         ArrayList<Contact> allContacts = returnContactBook();
         switch (result) {
             case ("1"):

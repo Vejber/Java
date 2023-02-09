@@ -15,54 +15,114 @@ public class AddContact extends ContactBook {
     }
 
     public String addNew(ArrayList<Contact> oldBook) {
-        // ArrayList<Contact> newBook =
         oldBook = returnContactBook();
-        Scanner iScanner = new Scanner(System.in);
+        Scanner iScanner1 = new Scanner(System.in);
         System.out.printf(
                 "Введите название контакта/ имя. ");
-        String newName = iScanner.nextLine();
-
-        ArrayList<String> newPhones = new ArrayList<>(); // может зациклиться если после нажатия ентер тоже счтается
+        String newName = iScanner1.nextLine();
+        // iScanner1.close();
+        ArrayList<String> newPhones = new ArrayList<>(); // может зациклиться если после нажатия ентер тоже счтается//
                                                          // строка
-        while (iScanner.hasNext()) {
-            System.out.printf(
-                    "Введите номер телефона. ");
-            String newPhone = iScanner.nextLine();
-            newPhones.add(newPhone);
-        }
 
+        // Scanner iScanner2 = new Scanner(System.in);
+
+        // System.out.printf(
+        // "Введите номер телефона. ");
+        // String newPhone = iScanner2.nextLine();
+        // newPhones.add(newPhone);
         ArrayList<String> newEmails = new ArrayList<>();
-        while (iScanner.hasNext()) {
-            System.out.printf(
-                    "Введите email. ");
-            String newEmail = iScanner.nextLine();
-            newEmails.add(newEmail);
-        }
-
         ArrayList<String> newTgs = new ArrayList<>();
-        while (iScanner.hasNext()) {
-            System.out.printf(
-                    "Введите ник в телеграме. ");
-            String newTg = iScanner.nextLine();
-            newTgs.add(newTg);
-        }
-
         ArrayList<String> newVks = new ArrayList<>();
-        while (iScanner.hasNext()) {
-            System.out.printf(
-                    "Введите вк. ");
-            String newVk = iScanner.nextLine();
-            newVks.add(newVk);
-        }
-
         ArrayList<String> newAddresses = new ArrayList<>();
-        while (iScanner.hasNext()) {
+        while (iScanner1.hasNextLine()) {
             System.out.printf(
-                    "Введите адрес. ");
-            String newAddress = iScanner.nextLine();
-            newAddresses.add(newAddress);
+                    "Введите номер телефона или @ чтобы продолжить. ");
+            String newPhone = iScanner1.nextLine();
+            if (newPhone.equals("@")) {
+                // Scanner iScanner3 = new Scanner(System.in);
+                while (iScanner1.hasNextLine()) {
+                    System.out.printf(
+                            "Введите email или @ чтобы продолжить. ");
+                    String newEmail = iScanner1.nextLine();
+                    if (newEmail.equals("@")) {
+                        while (iScanner1.hasNext()) {
+                            System.out.printf(
+                                    "Введите ник в телеграме или @ чтобы продолжить. ");
+                            String newTg = iScanner1.nextLine();
+                            if (newTg.equals("@")) {
+                                while (iScanner1.hasNext()) {
+                                    System.out.printf(
+                                            "Введите вк или @ чтобы продолжить. ");
+                                    String newVk = iScanner1.nextLine();
+                                    if (newVk.equals("@")) {
+                                        while (iScanner1.hasNext()) {
+                                            System.out.printf(
+                                                    "Введите адрес или @ чтобы продолжить. ");
+                                            String newAddress = iScanner1.nextLine();
+                                            if (newAddress.equals("@")) {
+                                                iScanner1.close();
+                                            } else {
+                                                newAddresses.add(newAddress);
+                                            }
+                                        }
+                                    } else {
+                                        newVks.add(newVk);
+                                    }
+                                }
+                            } else {
+                                newTgs.add(newTg);
+                            }
+                        }
+                    } else {
+                        newEmails.add(newEmail);
+                    }
+                }
+            } else {
+                newPhones.add(newPhone);
+            }
         }
-        iScanner.close();
+        // iScanner2.close();
+        iScanner1.close();
+
+        // ArrayList<String> newEmails = new ArrayList<>();
+        // Scanner iScanner3 = new Scanner(System.in);
+        // while (iScanner3.hasNext()) {
+        // System.out.printf(
+        // "Введите email. ");
+        // String newEmail = iScanner3.nextLine();
+        // newEmails.add(newEmail);
+        // }
+        // iScanner3.close();
+
+        // Scanner iScanner4 = new Scanner(System.in);
+        // ArrayList<String> newTgs = new ArrayList<>();
+        // while (iScanner4.hasNext()) {
+        // System.out.printf(
+        // "Введите ник в телеграме. ");
+        // String newTg = iScanner4.nextLine();
+        // newTgs.add(newTg);
+        // }
+        // iScanner4.close();
+
+        // Scanner iScanner5 = new Scanner(System.in);
+        // ArrayList<String> newVks = new ArrayList<>();
+        // while (iScanner5.hasNext()) {
+        // System.out.printf(
+        // "Введите вк. ");
+        // String newVk = iScanner5.nextLine();
+        // newVks.add(newVk);
+        // }
+        // iScanner5.close();
+
+        // Scanner iScanner6 = new Scanner(System.in);
+        // ArrayList<String> newAddresses = new ArrayList<>();
+        // while (iScanner6.hasNext()) {
+        // System.out.printf(
+        // "Введите адрес. ");
+        // String newAddress = iScanner6.nextLine();
+        // newAddresses.add(newAddress);
+        // }
+        // iScanner6.close();
 
         HashMap<String, ArrayList<String>> newContactHashMap = new HashMap<>();
         newContactHashMap.put("phone", newPhones);

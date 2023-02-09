@@ -14,7 +14,7 @@ public class ContactBook extends Contact {
 
         //////////////// contact1
         // his name
-        String contact1Name = "Lupa";
+        String contact1Name = "Lupa ";
 
         // one of his many contacts
         String contact1Phone = "phone";
@@ -37,7 +37,7 @@ public class ContactBook extends Contact {
 
         //////////////// contact2
         // his name
-        String contact2Name = "Pupa";
+        String contact2Name = "Pupa ";
 
         // one of his many contacts
         String contact2Phone = "phone";

@@ -14,8 +14,9 @@ public class DeleteAWay extends ContactBook {
         // TODO Auto-generated constructor stub
     }
 
-    public String remove(ArrayList<Contact> oldBook) { // or String
+    public String remove(ArrayList<Contact> oldBook) {
         oldBook = returnContactBook();
+
         Scanner iScanner = new Scanner(System.in);
         System.out.printf(
                 "Введите название контакта/ имя. ");
@@ -23,19 +24,15 @@ public class DeleteAWay extends ContactBook {
         System.out.printf(
                 "Введите способ связи, который нужно удалить. ");
         String thisWay = iScanner.nextLine();
-        iScanner.close();
         for (Contact item : oldBook) { // Contact contact1{name; phone: 123, 456}
             ContactToString contact = new ContactToString(item.name, item.reach);
             String result = contact.convertWithIteration(item);
             if (result.contains(thisName)) {
                 if (result.contains(thisWay)) {
-                    HashMap<String, ArrayList<String>> thisContacts = this.reach;
+                    HashMap<String, ArrayList<String>> thisContacts = item.reach;
                     for (Object key : thisContacts.keySet()) { // phone
-                        Object value = thisContacts.get(key);
-                        String valueString = (String) value;
-                        if (valueString.equals(thisWay)) {
-                            // прописать удаление
-                            this.reach.remove(key, thisContacts.get(key));
+                        if (key.equals(thisWay)) {
+                            item.reach.remove(key, thisContacts.get(key));
                             return ("Способ связи удален.");
                         }
                     }

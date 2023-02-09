@@ -9,10 +9,8 @@ public class HashMapToString {
     public String convertWithIteration(HashMap<String, ArrayList<String>> map) {
         StringBuilder mapAsString = new StringBuilder("{");
         for (String key : map.keySet()) {
-            // StringBuilder arrayListAsString = new StringBuilder();
             ArrayList<String> arrayListString = map.get(key);
-            String arrayListAsString = String.join(", ", arrayListString); // maybe problematic like this
-                                                                           // maybeproblematic
+            String arrayListAsString = String.join(", ", arrayListString);
             mapAsString.append(key + "=" + arrayListAsString + ", ");
         }
         mapAsString.delete(mapAsString.length() - 2, mapAsString.length()).append("}");

@@ -15,16 +15,15 @@ public class FindContact extends ContactBook {
     }
 
     public String SearchContact(ArrayList<Contact> allContacts) {
+        allContacts = returnContactBook();
         Scanner iScanner = new Scanner(System.in);
         System.out.printf(
                 "Введите название контакта/ имя.");
         String userAsk = iScanner.nextLine();
-        iScanner.close();
         for (Contact item : allContacts) { // Contact contact1{name; phone: 123, 456}
             ContactToString contact = new ContactToString(item.name, item.reach);
             String result = contact.convertWithIteration(item);
-            // showContacts.add(result);
-            if (result.equals(userAsk)) {
+            if (result.contains(userAsk)) {
                 return result;
             }
         }

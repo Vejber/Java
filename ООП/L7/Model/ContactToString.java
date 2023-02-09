@@ -18,15 +18,7 @@ public class ContactToString extends Contact {
         HashMap<String, ArrayList<String>> thisContacts = this.reach;
         ContactAsString.append(name); // "{Pupa
         for (Object key : thisContacts.keySet()) { // phone
-            ArrayList<String> arrayListString = new ArrayList<>();
-            Object value = thisContacts.get(key);
-            String valueString = (String) value;
-            {
-                arrayListString.add(valueString);
-            } // 123, 456
-              // thisContacts.get(key); // 123, 456
-            String arrayListAsString = String.join(", ", arrayListString); // maybe problematic like this
-                                                                           // maybeproblematic
+            String arrayListAsString = String.join(", ", thisContacts.get(key));
             ContactAsString.append(key + "=" + arrayListAsString + ", ");
         }
         ContactAsString.delete(ContactAsString.length() - 2, ContactAsString.length()).append("}");

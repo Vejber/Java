@@ -10,3 +10,5 @@ public class program {
         button.button();
     }
 }
+
+// AddContact i AddWay fignya while loop for scanner?????

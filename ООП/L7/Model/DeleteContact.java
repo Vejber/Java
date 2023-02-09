@@ -14,13 +14,13 @@ public class DeleteContact extends FindContact {
         // TODO Auto-generated constructor stub
     }
 
-    public String deleteContact(ArrayList<Contact> oldBook) { // or String
+    public String deleteContact(ArrayList<Contact> oldBook) {
         oldBook = returnContactBook();
         String thisName = SearchContact(oldBook);
-        if (!thisName.equals("Контакт не найден.")) {
-            for (Object Contact : oldBook) {
-                if (name.equals(thisName)) {
-                    oldBook.remove(Contact);
+        if (!thisName.contains("Контакт не найден.")) {
+            for (Contact contact : oldBook) {
+                if (thisName.contains(contact.name)) {
+                    oldBook.remove(contact);
                     return ("Контакт удален.");
                 }
             }
