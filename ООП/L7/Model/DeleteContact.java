@@ -2,10 +2,8 @@ package ООП.L7.Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
 
 import ООП.L7.Contact;
-import ООП.L7.ContactBook;
 
 public class DeleteContact extends FindContact {
 

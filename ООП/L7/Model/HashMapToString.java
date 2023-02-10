@@ -3,8 +3,6 @@ package ООП.L7.Model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-// fignya,nado<String,ArrayList>
-
 public class HashMapToString {
     public String convertWithIteration(HashMap<String, ArrayList<String>> map) {
         StringBuilder mapAsString = new StringBuilder("{");

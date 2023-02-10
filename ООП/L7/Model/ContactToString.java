@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import ООП.L7.Contact;
 
-// String name, HashMap<String, ArrayList> contacts
 public class ContactToString extends Contact {
     public ContactToString(String name, HashMap<String, ArrayList<String>> reach) {
         super(name, reach);

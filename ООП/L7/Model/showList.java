@@ -1,12 +1,10 @@
 package ООП.L7.Model;
-// • Посмотреть список контрагентов 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import ООП.L7.Contact;
 import ООП.L7.ContactBook;
-import ООП.L7.Model.ContactToString;
 
 public class showList extends ContactBook {
 

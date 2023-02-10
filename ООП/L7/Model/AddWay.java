@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import ООП.L7.Contact;
-import ООП.L7.ContactBook;
 
 public class AddWay extends FindContact {
 
@@ -14,24 +13,30 @@ public class AddWay extends FindContact {
         // TODO Auto-generated constructor stub
     }
 
-    public String addWay(ArrayList<Contact> oldBook) { // or String
+    public String addWay(ArrayList<Contact> oldBook) {
         oldBook = returnContactBook();
+        Boolean goOn = true;
         String thisName = SearchContact(oldBook);
-        if (!thisName.equals("Контакт не найден.")) {
-            // HashMap<String, ArrayList<String>> addNewWay = new HashMap<>();
-            ArrayList<String> newNumbersWay = new ArrayList<>();
-            for (Object Contact : oldBook) {
-                if (name.equals(thisName)) {
+        if (!thisName.contains("Контакт не найден.")) {
+            for (Contact item : oldBook) { // Contact contact1{name; phone: 123, 456}
+                ContactToString contact = new ContactToString(item.name, item.reach);
+                String result = contact.convertWithIteration(item);
+                ArrayList<String> newNumbersWay = new ArrayList<>();
+                if (result.contains(thisName)) {
                     Scanner iScanner = new Scanner(System.in);
                     System.out.printf("Введите название нового способа связи. ");
                     String newWay = iScanner.nextLine();
-                    while (iScanner.hasNextLine()) {
-                        System.out.printf("Введите значение нового способа свзязи. ");
+                    while (goOn) {
+                        System.out.printf("Введите значение нового способа свзязи или @ чтобы продолжить. ");
                         String newNumbers = iScanner.nextLine();
-                        newNumbersWay.add(newNumbers);
+                        if (!newNumbers.equals("@")) {
+                            newNumbersWay.add(newNumbers);
+                        } else {
+                            iScanner.close();
+                            goOn = false;
+                        }
                     }
-                    // iScanner.close();
-                    reach.put(newWay, newNumbersWay);
+                    item.reach.put(newWay, newNumbersWay);
                 }
             }
             return ("Способ связи добавлен.");
